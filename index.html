@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>On-va-ou</title>
+    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyBd7YNcoELlCaXM7AHnKMyffnZ2hjB6MSM"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="node_modules/maplace-js/dist/maplace.min.js"></script>
+</head>
+<body>
+    <div id="gmap" style="width:300px;height:250px;"></div>
+
+    <script type="text/javascript">
+        $(function() {
+            new Maplace({
+                controls_on_map: false
+            }).Load();
+        });
+        </script>
+</body>
+</html>
