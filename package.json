@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "maplace-js": "^0.2.10"
+    "maplace-js": "^0.2.10",
+    "mongoose": "^4.12.1"
   }
 }
