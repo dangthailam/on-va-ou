@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "express": "^4.16.2",
     "maplace-js": "^0.2.10",
-    "mongoose": "^4.12.1"
+    "mongoose": "^4.12.3",
+    "path": "^0.12.7"
   }
 }
