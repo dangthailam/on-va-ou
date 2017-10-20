@@ -7,6 +7,11 @@
     let userSchema = Schema({
         firstName: String,
         lastName: String,
+        role: {
+            type: String,
+            enum: ['admin', 'user'],
+            required: true
+        },
         username: {
             type: String,
             required: true
@@ -41,5 +46,7 @@
         });
     });
 
-    mongoose.model('User', userSchema);
+    var User = mongoose.model('User', userSchema);
+
+    module.exports = User;
 })();

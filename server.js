@@ -2,8 +2,26 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const routes = require('./server/routes/routes');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const config = require('./server/config/config');
+
+mongoose.Promise = require('bluebird');
+mongoose.connect(config.connectionString, {
+    useMongoClient: true
+}, function (err) {
+    if (err) throw err;
+    console.log('Connected to MongoDB');
+});
 
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
 
 app.use('/api', routes);
 

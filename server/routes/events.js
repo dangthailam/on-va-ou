@@ -1,20 +1,15 @@
 (function () {
     const express = require('express');
-    const router = express.Router();
+    const eventRouter = express.Router();
     const jwt = require('jsonwebtoken');
     const config = require('../config/config');
 
-    const userRouter = require('./users');
-    const eventRouter = require('./events');
-    const authenticationRouter = require('./authentication');
-    const eventTypeRouter = require('./eventTypes');
+    const Event = require('../models/event.model');
+    const User = require('../models/user.model');
+    const EventType = require('../models/eventType.model');
+    const Address = require('../models/address.model');
 
-
-    router.use(function (req, res, next) {
-        if (req.originalUrl === '/api/token') {
-            return next();
-        }
-
+    eventRouter.use(function (req, res, next) {
         var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
         if (token) {
@@ -37,10 +32,21 @@
         }
     });
 
-    router.use('/users', userRouter);
-    router.use('/events', eventRouter);
-    router.use('/token', authenticationRouter);
-    router.use('/eventtypes', eventTypeRouter);
+    eventRouter.post('/', function (req, res, next) {
+        User.findOne({ _id: req.decoded._id }, function (err, user) {
+            if (err) return res.status(400).send({
+                success: false,
+                message: err
+            });
 
-    module.exports = router;
+            if (!user) return res.status(400).send({
+                success: false,
+                message: 'User not found'
+            });
+
+            res.json(user);
+        });
+    });
+
+    module.exports = eventRouter;
 })();

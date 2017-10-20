@@ -1,11 +1,24 @@
-(function(){
+(function () {
     let mongoose = require('mongoose');
     let Schema = mongoose.Schema;
-    
+
     let addressSchema = Schema({
-        lat: Number,
-        lon: Number
+        lat: {
+            type: Number,
+            required: true
+        },
+        lon: {
+            type: Number,
+            required: true
+        },
+        number: String,
+        street: String,
+        city: String,
+        postal: String,
+        country: String
     });
-    
-    mongoose.model('Address', addressSchema);
+
+    var Address = mongoose.model('Address', addressSchema);
+
+    module.exports = Address;
 })();

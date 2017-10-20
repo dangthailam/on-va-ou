@@ -23,5 +23,7 @@
         }
     });
     
-    mongoose.model('Event', eventSchema);
+    var Event = mongoose.model('Event', eventSchema);
+
+    module.exports = Event;
 })();

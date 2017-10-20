@@ -3,8 +3,13 @@
     let Schema = mongoose.Schema;
     
     let eventTypeSchema = Schema({
-        type: String
+        type: {
+            type: String,
+            required: true
+        }
     });
     
-    mongoose.model("EventType", eventTypeSchema);  
+    var EventType = mongoose.model("EventType", eventTypeSchema);
+
+    module.exports = EventType;
 })();
