@@ -7,11 +7,11 @@
             type: String,
             required: true
         },
-        time: {
+        startedDate: {
             type: Date,
             required: true
         },
-        duration: {
+        endedDate: {
             type: Date,
             required: true
         },

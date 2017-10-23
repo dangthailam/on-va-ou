@@ -1,77 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>On-va-ou</title>
-    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry,places&v=3.22&key=AIzaSyBd7YNcoELlCaXM7AHnKMyffnZ2hjB6MSM"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="node_modules/maplace-js/dist/maplace.js"></script>
+    <title>Ou-vas-tu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <script type="text/javascript" script-name="righteous" src="http://use.edgefonts.net/righteous.js"></script>
+    <script type="text/javascript" script-name="lato" src="http://use.edgefonts.net/lato.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
 <body>
-    <div id="gmap-dropdown"></div>
-    <div id="gmap" style="width:100%;height:900px;"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 namesite">
+                    <h1>Ou vas-tu?</h1>
+                </div>
+                <div class="col-sm-6">
+                    <button class="menu-btn pull-right" type="button">Créateur</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <script type="text/javascript">
-        $(function () {
+    <div class="container" id="contenu">
+        <h2>Création d'un évenement</h2>
+        <div class="row">
+            <div id="table1" class="col-lg-10">
+                <form id="element-form" method="post" action="" role="form">
+                    <div class="row">
+                        <div class="col">
+                            <label for="type">Type
+                                <span class="blue"> *</span>
+                            </label>
+                            <input type="text" id="type" name="type" class="form-control" placeholder="Type d'évenement">
+                        </div>
+                        <div class="col">
+                            <label for="date">Date
+                                <span class="blue"> *</span>
+                            </label>
+                            <input type="text" id="date" name="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="adresse">Adresse
+                                <span class="blue"> *</span>
+                            </label>
+                            <input type="text" id="email" name="adress" class="form-control" placeholder="Nom de la rue">
+                        </div>
+                        <div class="col">
+                            <label for="codepostale">Code postale
+                                <span class="blue"> *</span>
+                            </label>
+                            <input type="text" id="codepostale" name="codepostale" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="ville">Ville
+                                <span class="blue"> *</span>
+                            </label>
+                            <input type="text" id="ville" name="ville" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="description">Description: </label>
+                            <textarea name="description" id="description" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
 
-            var locations = [
-                {
-                    lat: 48.86911867,
-                    lon: 2.32335091,
-                    html: [
-                        '<h3>Content D2</h3>',
-                        '<p>Restaurant promo</p>',
-                        '<p>Phone: 0750353191</p>'
-                    ].join(''),
-                    title: "1st point",
-                    icon: 'http://maps.google.com/mapfiles/markerA.png'
-                },
-                {
-                    lat: 48.85172663,
-                    lon: 2.37999916,
-                    icon: 'http://maps.google.com/mapfiles/markerB.png'
-                },
-                {
-                    lat: 48.8418986,
-                    lon: 2.32506752,
-                    icon: 'http://maps.google.com/mapfiles/markerC.png'
-                }
-            ];
+                    <div id="contact-form" method="post" action="" role="form">
+                        <h3>Vos contacts</h3>
+                        <label for="lien">Lien</label>
+                        <input type="text" id="lien" name="lien" class="form-control" placeholder="Lien">
+                        <label for="email">Email
+                            <span class="blue"> *</span>
+                        </label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Votre email">
+                        <label for="tel">Téléphone
+                            <span class="blue"> *</span>
+                        </label>
+                        <input type="tel" id="tel" name="tel" class="form-control" placeholder="Votre téléphone">
+                        <input type="submit" value="OK" class="button-3">
+                    </div>
+                </form>
+            </div>
+        </div>
 
-            var maplace = new Maplace({
-                locations: locations,
-                map_options: {
-                    set_center: [48.856614, 2.3522219],
-                    zoom: 12
-                }
-            });
 
-            maplace.Load();
+    </div>
 
-            var request = {
-                placeId: 'ChIJCYeFPX5j5kcRbQx3J0A_EBM'
-            };
-
-            service = new google.maps.places.PlacesService(maplace.oMap);
-            service.getDetails(request, function callback(place, status) {
-                console.log(status, place.geometry.location.lat(), place.geometry.location.lng());
-                console.log(place);
-
-                var lat = place.geometry.location.lat();
-                var lon = place.geometry.location.lng();
-
-                maplace.AddLocation({
-                    lat: lat,
-                    lon: lon,
-                    icon: 'http://maps.google.com/mapfiles/markerD.png'
-                }, 0, true);
-            });
-        });
-    </script>
 </body>
 
 </html>

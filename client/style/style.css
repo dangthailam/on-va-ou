@@ -1,0 +1,128 @@
+body {
+    background: url(https://image.ibb.co/ntP4Dw/smooth_dark_blue_with_black_vignette_studio_well_use_as_background_business_report_digital_website_template_1258_748.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.namesite {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font-family: "Pacifico", cursive, sans-serif;
+    color: rgba(19, 19, 20, 1);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+}
+h1
+{
+    font-size: 90px;
+    
+}
+h2
+{
+    display: block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    float: none;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    position: static;
+    cursor: default;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    font: normal 57px/1 "righteous", Helvetica, sans-serif;
+    color: rgba(153,41,41,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-shadow: 10px 5px 7px rgba(0,0,0,0.5) ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+}
+#element-form
+{
+    font-size: 20px;
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-bottom: 20px;
+    padding: 60px;
+    border: none;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: rgba(15,14,14,1);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: rgba(237,241,244,1);
+    -webkit-box-shadow: 20px 20px 5px 0 rgba(0,0,0,0.3) ;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.3) ;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+}
+#table1
+{
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.blue
+{
+    color: #0069d6;
+}
+.menu-btn {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    float: right;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    position: static;
+    cursor: pointer;
+    opacity: 1;
+    margin: 29px 31px 0 4px;
+    padding: 12px;
+    overflow: visible;
+    border: none;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    font: normal normal bold 16px/normal "lato", Helvetica, sans-serif;
+    color: rgba(15,14,14,0.9);
+    text-align: right;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(237,241,244,1);
+    -webkit-box-shadow: 10px 10px 2px 0 rgba(0,0,0,0.2) ;
+    box-shadow: 10px 10px 2px 0 rgba(0,0,0,0.2) ;
+    text-shadow: -1px -1px 0 rgba(153,41,41,1);
+    -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+}
