@@ -18,7 +18,7 @@
             res.status(200).json(user);
         }).catch(function (err) {
             res.status(400).send({
-                success: true,
+                success: false,
                 message: err
             });
         });
@@ -36,7 +36,18 @@
                 message: 'User not found'
             });
 
-            //TODO
+            for (var prop in req.body) {
+                user[prop] = req.body[prop];
+            }
+
+            user.save().then((user) => {
+                res.status(200).json(user);
+            }).catch((err) => {
+                res.status(400).send({
+                    success: false,
+                    message: err
+                });
+            });
         });
     });
 
@@ -52,7 +63,7 @@
             res.status(201).json(user);
         }).catch(function (err) {
             res.status(400).send({
-                success: true,
+                success: false,
                 message: err
             });
         });

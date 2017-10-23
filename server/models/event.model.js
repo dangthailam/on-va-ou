@@ -1,28 +1,43 @@
-(function(){
+(function () {
     let mongoose = require('mongoose');
     let Schema = mongoose.Schema;
-    
+
     let eventSchema = Schema({
-        title: String,
-        time: Date,
-        duration: Date,
+        title: {
+            type: String,
+            required: true
+        },
+        time: {
+            type: Date,
+            required: true
+        },
+        duration: {
+            type: Date,
+            required: true
+        },
         phone: String,
-        description: String,
+        description: {
+            type: String,
+            required: true
+        },
         urlSite: String,
         type: {
             type: Schema.Types.ObjectId,
-            ref: 'EventType'
+            ref: 'EventType',
+            required: true
         },
         address: {
             type: Schema.Types.ObjectId,
-            ref: 'Address'
+            ref: 'Address',
+            required: true
         },
         creator: {
             type: Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'User',
+            required: true
         }
     });
-    
+
     var Event = mongoose.model('Event', eventSchema);
 
     module.exports = Event;

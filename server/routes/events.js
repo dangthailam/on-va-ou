@@ -9,42 +9,37 @@
     const EventType = require('../models/eventType.model');
     const Address = require('../models/address.model');
 
-    eventRouter.use(function (req, res, next) {
-        var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-        if (token) {
-            jwt.verify(token, config.secret, function (err, decoded) {
-                if (err) {
-                    return res.json({
-                        success: false,
-                        message: 'Failed to authenticate token.'
-                    });
-                } else {
-                    req.decoded = decoded;
-                    next();
-                }
-            });
-        } else {
-            return res.status(403).send({
-                success: false,
-                message: 'No token provided'
-            });
-        }
-    });
-
     eventRouter.post('/', function (req, res, next) {
-        User.findOne({ _id: req.decoded._id }, function (err, user) {
-            if (err) return res.status(400).send({
+        let newEvent = Event({
+            title: req.body.title,
+            time: req.body.time,
+            duration: req.body.duration,
+            phone: req.body.phone,
+            description: req.body.description,
+            urlSite: req.body.urlSite,
+            type: req.body.typeId,
+            address: req.body.addressId,
+            creator: req.body.creatorId
+        });
+
+        newEvent.save().then((event) => {
+            res.status(201).json(event);
+        }).catch((err) => {
+            res.status(400).send({
                 success: false,
                 message: err
             });
+        });
+    });
 
-            if (!user) return res.status(400).send({
+    eventRouter.get('/', (req, res, next) => {
+        Event.find({}, (err, events) => {
+            if(err) return res.status(400).send({
                 success: false,
-                message: 'User not found'
+                message: 'Error'
             });
 
-            res.json(user);
+            res.status(200).json(events);
         });
     });
 

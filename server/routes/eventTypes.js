@@ -11,16 +11,69 @@
             });
         }
 
-        let eventType = EventType({
-            type: req.body.type
-        });
+        EventType.find({ type: req.body.type }, (err, types) => {
+            if (err) return res.status(400).send({
+                success: false,
+                message: 'Error'
+            });
 
-        eventType.save().then(function (et) {
-            res.status(201).json(et);
-        }).catch(function (err) {
-            res.status(400).send({
+            if (types && types.length > 0) return res.status(400).send({
+                success: false,
+                message: 'This type had been created'
+            });
+
+            let eventType = EventType({
+                type: req.body.type
+            });
+
+            eventType.save().then((et) => {
+                res.status(201).json(et);
+            }).catch((err) => {
+                res.status(400).send({
+                    success: true,
+                    message: err
+                });
+            });
+        });
+    });
+
+    eventTypeRouter.get('/', (req, res, next) => {
+        EventType.find({}, (err, types) => {
+            if (err) return res.status(400).send({
+                success: false,
+                message: 'Error'
+            });
+
+            res.json(types);
+        });
+    });
+
+    eventTypeRouter.get('/:id', (req, res, next) => {
+        EventType.findById(req.params.id, (err, type) => {
+            if (err) return res.status(400).send({
+                success: false,
+                message: 'Error'
+            });
+
+            res.json(type);
+        });
+    });
+
+    eventTypeRouter.delete('/:id', (req, res, next) => {
+        EventType.findByIdAndRemove(req.params.id, (err, eventType) => {
+            if (err) return res.status(400).send({
+                success: false,
+                message: 'Error'
+            });
+
+            if(!eventType) return res.status(400).send({
+                success: false,
+                message: 'This event type did not exist'
+            });
+
+            res.status(200).send({
                 success: true,
-                message: err
+                message: eventType._id + " successfully deleted"
             });
         });
     });

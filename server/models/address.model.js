@@ -3,19 +3,10 @@
     let Schema = mongoose.Schema;
 
     let addressSchema = Schema({
-        lat: {
-            type: Number,
+        googlePlaceId: {
+            type: String,
             required: true
-        },
-        lon: {
-            type: Number,
-            required: true
-        },
-        number: String,
-        street: String,
-        city: String,
-        postal: String,
-        country: String
+        }
     });
 
     var Address = mongoose.model('Address', addressSchema);

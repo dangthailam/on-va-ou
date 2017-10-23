@@ -8,6 +8,7 @@
     const eventRouter = require('./events');
     const authenticationRouter = require('./authentication');
     const eventTypeRouter = require('./eventTypes');
+    const addressRouter = require('./addresses');
 
 
     router.use(function (req, res, next) {
@@ -41,6 +42,8 @@
     router.use('/events', eventRouter);
     router.use('/token', authenticationRouter);
     router.use('/eventtypes', eventTypeRouter);
+    router.use('/addresses', addressRouter);
+    
 
     module.exports = router;
 })();
