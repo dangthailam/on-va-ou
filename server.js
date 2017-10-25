@@ -17,6 +17,7 @@ mongoose.connect(config.connectionString, {
 
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use("/style", express.static(__dirname + "/client/style"));
+app.use("/", express.static(__dirname + "/client/views"));
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,7 +28,7 @@ app.use(bodyParser.json());
 app.use('/api', routes);
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/homepage.html');
 });
 
 app.listen(3000, function () {
