@@ -35,6 +35,10 @@
             type: Schema.Types.ObjectId,
             ref: 'User',
             required: true
+        },
+        __v: { 
+            type: Number, 
+            select: false 
         }
     });
 

@@ -28,7 +28,7 @@
         User.findOne({ _id: req.decoded._id }, function (err, user) {
             if (err) return res.status(400).send({
                 success: false,
-                message: 'Error'
+                message: err
             });
 
             if (!user) return res.status(404).send({

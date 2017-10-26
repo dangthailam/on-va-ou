@@ -27,10 +27,6 @@ app.use(bodyParser.json());
 
 app.use('/api', routes);
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/homepage.html');
-});
-
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });

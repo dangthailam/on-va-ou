@@ -18,7 +18,12 @@
         },
         password: {
             type: String,
+            select: false,
             required: true
+        },
+        __v: { 
+            type: Number, 
+            select: false 
         }
     });
 

@@ -41,5 +41,48 @@
         });
     });
 
+    addressRouter.put('/:id', (req, res, next) => {
+        Address.findById(req.params.id, (err, address) => {
+            if (err) return res.status(400).send({
+                success: false,
+                message: err
+            });
+
+            if (!address) return res.status(404).send({
+                success: false,
+                message: 'Address not found'
+            });
+
+            address.googlePlaceId = req.body.googlePlaceId;
+
+            address.save().then((address) => {
+                res.status(200).json(address);
+            }).catch((err) => {
+                res.status(400).send({
+                    success: false,
+                    message: err
+                });
+            });
+        });
+    });
+
+    addressRouter.delete('/:id', (req, res, next) => {
+        Address.findByIdAndRemove(req.params.id, (err, address) => {
+            if(err) return res.status(400).send({
+                success: false,
+                message: err
+            });
+
+            if(!address) return res.status(404).send({
+                success: false,
+                message: 'Address not found'
+            });
+
+            res.status(200).send({
+                success: true
+            });
+        });
+    });
+
     module.exports = addressRouter;
 })();
