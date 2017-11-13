@@ -17,6 +17,7 @@ mongoose.connect(config.connectionString, {
 
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
 app.use("/style", express.static(__dirname + "/client/style"));
+app.use("/scripts", express.static(__dirname + "/client/scripts"));
 app.use("/", express.static(__dirname + "/client/views"));
 
 app.use(bodyParser.urlencoded({

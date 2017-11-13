@@ -7,14 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script type="text/javascript" script-name="righteous" src="http://use.edgefonts.net/righteous.js"></script>
     <script type="text/javascript" script-name="lato" src="http://use.edgefonts.net/lato.js"></script>
+
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+
+    <script src="/scripts/app.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
-<body>
+<body ng-app="onVaOu">
     <header>
         <div class="container">
             <div class="row">
@@ -22,10 +28,11 @@
                     <h1>Ou vas-tu?</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="menu-btn pull-right" href="/create-event.html">Créateur</a>
-                    <a class="menu-btn pull-right" href="/login.html">Login</a>
+                    <a class="menu-btn pull-right" ui-sref="createEvent">Créateur</a>
+                    <a class="menu-btn pull-right" ui-sref="login">Login</a>
                 </div>
             </div>
         </div>
     </header>
+    <ui-view></ui-view>
 </body>
